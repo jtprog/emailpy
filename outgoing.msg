@@ -1,6 +1,6 @@
 Subject: =?utf-8?b?0J/RgNC40LLQtdGCINC40Lcg0LrQvtC90YHQvtC70Lg=?=
-From: JTProg_ru <pupezhnik@gmail.com>
-To: Kalandarov Yura <savin@argosy-tech.ru>
+From: JTProg_ru <test@gmail.com>
+To: Kalandarov Yura <test@test.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 MIME-Version: 1.0
