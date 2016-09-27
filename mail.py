@@ -3,7 +3,6 @@ import sys
 from smtplib import SMTP
 from email.mime.text import MIMEText
 
-
 destination = []
 serverSMTP = 'smtp.gmail.com'
 serverPORT = '587'
@@ -26,27 +25,36 @@ UPASS = password
 text_subtype = 'plain'
 
 # С новой строки вводится текст письма в одну сроку
-content = input('Enter your text message and press Enter to send:\n')
+print("Enter message, end with ^D (Unix) or ^Z (Windows):")
 
 try:
-    msg = MIMEText(content, text_subtype)
-    msg['Subject'] = subject
-    msg['From'] = sender
+    msg = ("From: %s\r\nTo: %s\r\n\r\nSubject: %s\r\n"
+           % (sender, ", ".join(destination)))
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+        if not line:
+            break
+        msg = msg + line
 
-	# Подключение к хосту Gmail
+    print("Message length is", len(msg))
+
+    # Подключение к хосту Gmail
     connection = SMTP(host=serverSMTP, port=serverPORT)
     connection.set_debuglevel(False)
-	# Приветствие TLS
-	connection.ehlo()
+    # Приветствие TLS
+    connection.ehlo()
     connection.starttls()
     connection.ehlo()
-	# Логинимся
+    # Логинимся
     connection.login(UNAME, UPASS)
     try:
-		# Отправляем сообщение
-        connection.sendmail(sender, destination, msg.as_string())
+        # Отправляем сообщение
+        connection.sendmail(sender, destination, msg)
     finally:
-		# Отключаемся от сервера
+        # Отключаемся от сервера
         connection.quit()
 
 # Обработка исключений:
