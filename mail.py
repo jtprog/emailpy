@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.5
 import sys
 from smtplib import SMTP
-from imaplib import 
+
 
 # Класс пользователя
 class MailUser:
