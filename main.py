@@ -2,9 +2,6 @@
 import sys
 from smtplib import SMTP
 
-# TODO: qwe
-
-
 # Класс пользователя
 class MailUser:
     login = input('Enter your Gmail account: ')
