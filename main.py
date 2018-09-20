@@ -1,23 +1,26 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3
+# coding=utf-8
+
 import sys
 from smtplib import SMTP
 
+
 # Класс пользователя
-class MailUser:
+class GMailUser:
     login = input('Enter your Gmail account: ')
     password = input('Enter your Gmail password: ')
 
 
 # Класс сервера
-class MailServer:
+class GMailServer:
     address = 'smtp.gmail.com'
     port = '587'
 
 
 # Создаем объект класса Пользователя
-user = MailUser()
+user = GMailUser()
 # Создаем объект класса Сервер
-srv = MailServer()
+srv = GMailServer()
 
 destination = []
 # serverSMTP = 'smtp.gmail.com'
